@@ -8,7 +8,6 @@
   <style>
     /* -------------------------
        ESTILOS GENERALES
-       Aquí puedes cambiar tipografía y colores base.
     --------------------------*/
     * {
       margin: 0;
@@ -18,8 +17,8 @@
     }
 
     body {
-      background: #fff; /* Fondo blanco principal */
-      color: #000;      /* Texto negro */
+      background: #fff;
+      color: #000;
       line-height: 1.6;
     }
 
@@ -35,91 +34,102 @@
 
     /* -------------------------
        HEADER + NAV
-       Fondo negro, texto blanco
+       Corregido con flexbox
     --------------------------*/
     header {
       background: #000;
       color: #fff;
       padding: 1rem 2rem;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-between; /* Logo izquierda, menú derecha */
       align-items: center;
+      flex-wrap: wrap; /* Para que no se rompa en pantallas pequeñas */
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
+    header h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px; /* Espacio entre enlaces */
+      flex-wrap: wrap;
+    }
+
     nav a {
-      margin: 0 10px;
       font-weight: bold;
       transition: color 0.3s;
     }
 
     nav a:hover {
-      color: gray; /* Hover del menú */
+      color: gray;
     }
 
     /* -------------------------
-       HERO (parte inicial)
-       Cambia colores de botones aquí.
+       HERO
+       Más compacto
     --------------------------*/
     .hero {
       text-align: center;
-      padding: 4rem 2rem;
-      background: #f5f5f5; /* Fondo gris claro */
+      padding: 3rem 1.5rem; /* Antes demasiado grande */
+      background: #f5f5f5;
     }
 
     .hero h1 {
-      font-size: 2.5rem;
+      font-size: 2rem; /* Reducido */
       margin-bottom: 1rem;
     }
 
     .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
     }
 
     .btn {
       display: inline-block;
-      padding: 0.8rem 1.5rem;
+      padding: 0.7rem 1.2rem;
       border: 2px solid #000;
       background: transparent;
       font-weight: bold;
       cursor: pointer;
-      margin: 0.5rem;
+      margin: 0.3rem;
       transition: 0.3s;
     }
 
     .btn:hover {
       background: #000;
-      color: #fff; /* Hover de botones */
+      color: #fff;
     }
 
     /* -------------------------
        SECCIONES
     --------------------------*/
     section {
-      padding: 3rem 2rem;
+      padding: 2.5rem 1.5rem;
     }
 
     .section-title {
       text-align: center;
       margin-bottom: 2rem;
-      font-size: 2rem;
+      font-size: 1.8rem;
       border-bottom: 2px solid #000;
       display: inline-block;
       padding-bottom: 5px;
     }
 
     /* -------------------------
-       TARJETAS (autos y productos)
+       TARJETAS
     --------------------------*/
     .cards {
       display: grid;
       gap: 1.5rem;
     }
 
-    /* Grid adaptable */
     .cards.autos {
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
@@ -136,7 +146,7 @@
     }
 
     .card:hover {
-      transform: translateY(-5px); /* Animación hover */
+      transform: translateY(-5px);
     }
 
     .card img {
@@ -149,6 +159,7 @@
       justify-content: center;
       gap: 0.5rem;
       margin-bottom: 1rem;
+      flex-wrap: wrap;
     }
 
     .miniaturas img {
@@ -174,10 +185,10 @@
     }
 
     /* -------------------------
-       MODAL (ventanas emergentes)
+       MODAL
     --------------------------*/
     .modal {
-      display: none; /* Oculto por defecto */
+      display: none;
       position: fixed;
       top: 0; left: 0;
       width: 100%;
@@ -236,217 +247,38 @@
        RESPONSIVE
     --------------------------*/
     @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 1.8rem;
+      header {
+        flex-direction: column;
+        align-items: flex-start;
       }
-      nav {
-        font-size: 0.9rem;
+
+      nav ul {
+        justify-content: flex-start;
+      }
+
+      .hero h1 {
+        font-size: 1.6rem;
       }
     }
   </style>
 </head>
 <body>
-
-  <!-- =========================
-       HEADER
-  ========================== -->
+  <!-- HEADER -->
   <header>
     <h2>JIMENEZ TIENDA EXPRESS</h2>
     <nav>
-      <a href="#autos">Autos</a>
-      <a href="#productos">Productos</a>
-      <a href="#contacto">Contacto</a>
+      <ul>
+        <li><a href="#autos">Autos</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
     </nav>
   </header>
 
-  <!-- =========================
-       HERO
-  ========================== -->
+  <!-- HERO -->
   <section class="hero">
     <h1>Bienvenido a JIMENEZ TIENDA EXPRESS</h1>
-    <p>Tu tienda de confianza: autos y productos de todo tipo, nuevos y usados.</p>
+    <p>Encuentra autos y mucho más, nuevos y usados.</p>
     <a href="#autos" class="btn">Ver Autos</a>
     <a href="#productos" class="btn">Ver Productos</a>
   </section>
-
-  <!-- =========================
-       AUTOS
-  ========================== -->
-  <section id="autos">
-    <h2 class="section-title">Autos</h2>
-    <div class="cards autos">
-
-      <!-- Tarjeta de Auto 1 -->
-      <div class="card">
-        <img src="logan2.jpg" alt="Auto 1" class="principal">
-        <div class="miniaturas">
-          <!-- Miniaturas que cambian la foto principal -->
-          <img src="loganfrente.jpg" alt="Miniatura 1">
-          <img src="kilometraje.jpg" alt="Miniatura 2">
-          <img src="Logan1.jpg" alt="Miniatura 3">
-          <img src="Logan2.jpg" alt="Miniatura 3">
-        </div>
-        <p>Renault Logan Family 2015</p>
-        <button class="btn-caracteristicas" data-info="Motor 1.6 | Aire acondicionado | vidrios eléctricos | único dueño">Características</button>
-        <button onclick="window.open('https://wa.me/573021780301?text=Estoy%20interesado%20en%20el%20Logan','_blank')">Contacto</button>
-      </div>
-
-      <!-- Tarjeta de Auto 2 -->
-      <div class="card">
-        <img src="edge1.jpg" alt="Auto 2" class="principal">
-        <div class="miniaturas">
-          <img src="edge3.jpg" alt="Miniatura 1">
-          <img src="edge2.jpg" alt="Miniatura 2">
-	  <img src="edge5.jpg" alt="Miniatura 3">
-	  <img src="edge4.jpg" alt="Miniatura 4">
-          <img src="edge1.jpg" alt="Miniatura 5">
-          
-        </div>
-        <p>Ford Titanium 2016</p>
-        <button class="btn-caracteristicas" data-info="Full Equipo | Segundo Dueño | Perfecto Estado">Características</button>
-        <button onclick="window.open('https://wa.me/573021780301?text=Estoy%20interesado%20en%20el%20En%20la%20Edge','_blank')">Contacto</button>
-      </div>
-
-      <!-- Tarjeta de Auto 3 -->
-      <div class="card">
-        <img src="espresso2.jpg" alt="Auto 3" class="principal">
-        <div class="miniaturas">
-          <img src="spresso4.jpg" alt="Miniatura 1">
-          <img src="espresso1.jpg" alt="Miniatura 2">
-	  <img src="motorSu.jpg" alt="Miniatura 3">
-	  <img src="kilossuzuki.jpg" alt="Miniatura 4">
-          <img src="espresso2.jpg" alt="Miniatura 5">
-        </div>
-        <p>Suzuki Spresso 2023</p>
-        <button class="btn-caracteristicas" data-info="Vidrios Electricos | Unico Dueño | Listo Para Traspaso">Características</button>
-        <button onclick="window.open('https://wa.me/573021780301?text=Estoy%20interesado%20en%20el%20En%20la%20Suzuki','_blank')">Contacto</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================
-       PRODUCTOS
-  ========================== -->
-  <section id="productos">
-    <h2 class="section-title">Productos</h2>
-    <div class="cards productos">
-
-      <!-- Tarjeta genérica -->
-      <div class="card">
-        <img src="producto1.jpg" alt="Producto 1">
-        <p>Producto 1</p>
-        <button class="btn-caracteristicas" data-info="Detalles del Producto 1">Características</button>
-        <button class="btn-comprar" data-info="Detalles del Producto 1" data-link="https://www.mercadopago.com/ejemplo">Comprar</button>
-      </div>
-
-      <div class="card">
-        <img src="producto2.jpg" alt="Producto 2">
-        <p>Producto 2</p>
-        <button class="btn-caracteristicas" data-info="Detalles del Producto 2">Características</button>
-        <button class="btn-comprar" data-info="Detalles del Producto 2" data-link="https://www.mercadopago.com/ejemplo">Comprar</button>
-      </div>
-
-      <div class="card">
-        <img src="producto3.jpg" alt="Producto 3">
-        <p>Producto 3</p>
-        <button class="btn-caracteristicas" data-info="Detalles del Producto 3">Características</button>
-        <button class="btn-comprar" data-info="Detalles del Producto 3" data-link="https://www.mercadopago.com/ejemplo">Comprar</button>
-      </div>
-
-      <div class="card">
-        <img src="producto4.jpg" alt="Producto 4">
-        <p>Producto 4</p>
-        <button class="btn-caracteristicas" data-info="Detalles del Producto 4">Características</button>
-        <button class="btn-comprar" data-info="Detalles del Producto 4" data-link="https://www.mercadopago.com/ejemplo">Comprar</button>
-      </div>
-
-      <div class="card">
-        <img src="producto5.jpg" alt="Producto 5">
-        <p>Producto 5</p>
-        <button class="btn-caracteristicas" data-info="Detalles del Producto 5">Características</button>
-        <button class="btn-comprar" data-info="Detalles del Producto 5" data-link="https://www.mercadopago.com/ejemplo">Comprar</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================
-       FOOTER
-  ========================== -->
-  <footer id="contacto">
-    <p>© 2025 JIMENEZ TIENDA EXPRESS - Todos los derechos reservados.</p>
-    <div class="social">
-      <!-- Links ficticios -->
-      <a href="#">Facebook</a>
-      <a href="#">Instagram</a>
-      <a href="https://wa.me/573001112233" target="_blank">WhatsApp</a>
-    </div>
-  </footer>
-
-  <!-- =========================
-       MODAL GLOBAL
-       (Reutilizable para características y compra)
-  ========================== -->
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h3 id="modal-title">Detalles</h3>
-      <p id="modal-text"></p>
-      <a href="#" id="modal-link" class="btn" target="_blank" style="display:none;">Ir a comprar</a>
-    </div>
-  </div>
-
-  <!-- =========================
-       SCRIPT DE INTERACTIVIDAD
-  ========================== -->
-  <script>
-    // -------- Miniaturas de autos --------
-    document.querySelectorAll('.card').forEach(card => {
-      const principal = card.querySelector('.principal');
-      const thumbs = card.querySelectorAll('.miniaturas img');
-      if (principal && thumbs) {
-        thumbs.forEach(t => {
-          t.addEventListener('click', () => {
-            principal.src = t.src;
-          });
-        });
-      }
-    });
-
-    // -------- Modal --------
-    const modal = document.getElementById('modal');
-    const modalText = document.getElementById('modal-text');
-    const modalLink = document.getElementById('modal-link');
-    const close = document.querySelector('.close');
-
-    // Botones características
-    document.querySelectorAll('.btn-caracteristicas').forEach(btn => {
-      btn.addEventListener('click', () => {
-        modalText.textContent = btn.dataset.info;
-        modalLink.style.display = "none"; // No muestra botón de compra
-        modal.style.display = "flex";
-      });
-    });
-
-    // Botones comprar
-    document.querySelectorAll('.btn-comprar').forEach(btn => {
-      btn.addEventListener('click', () => {
-        modalText.textContent = btn.dataset.info;
-        modalLink.href = btn.dataset.link;
-        modalLink.style.display = "inline-block"; // Muestra botón de compra
-        modal.style.display = "flex";
-      });
-    });
-
-    // Cerrar modal
-    close.addEventListener('click', () => {
-      modal.style.display = "none";
-    });
-
-    window.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.style.display = "none";
-      }
-    });
-  </script>
-</body>
-</html>
