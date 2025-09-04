@@ -32,107 +32,82 @@
       color: inherit;
     }
 
-/* -------------------------
-   HEADER + NAV
---------------------------*/
-header {
-  background: #000;
-  color: #fff;
-  padding: 0.8rem 1.5rem;       /* más compacto */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+    /* -------------------------
+       HEADER + NAV
+    --------------------------*/
+    header {
+      background: #000;
+      color: #fff;
+      padding: 0.8rem 1.5rem;  /* más compacto */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-header h2 {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
+    header h2 {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
 
-nav {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 15px;                   /* menos espacio entre enlaces */
-}
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px; /* menos espacio entre enlaces */
+    }
 
-nav a {
-  font-weight: bold;
-  transition: color 0.3s;
-  font-size: 0.95rem;
-}
+    nav a {
+      font-weight: bold;
+      transition: color 0.3s;
+      font-size: 0.95rem;
+    }
 
-nav a:hover {
-  color: gray;
-}
+    nav a:hover {
+      color: gray;
+    }
 
-/* Hamburguesa escondida en escritorio */
-.hamburger {
-  display: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-/* -------------------------
-   RESPONSIVE HEADER
---------------------------*/
-@media (max-width: 768px) {
-  nav ul {
-    display: none;               /* oculto por defecto */
-    flex-direction: column;
-    background: #000;
-    position: absolute;
-    top: 60px;                  /* justo debajo del header */
-    right: 0;
-    width: 200px;
-    padding: 1rem;
-  }
-
-  nav ul.show {
-    display: flex;               /* aparece cuando activamos */
-  }
-
-  .hamburger {
-    display: block;              /* visible en móvil */
-  }
-}
-
+    /* Hamburguesa (escondida en escritorio) */
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
 
     /* -------------------------
        HERO
     --------------------------*/
     .hero {
       text-align: center;
-      padding: 3rem 1.5rem;
+      padding: 4rem 2rem;
       background: #f5f5f5;
     }
 
     .hero h1 {
-      font-size: 2rem;
+      font-size: 2.2rem;
       margin-bottom: 1rem;
     }
 
     .hero p {
       font-size: 1.1rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
 
     .btn {
       display: inline-block;
-      padding: 0.7rem 1.2rem;
+      padding: 0.8rem 1.5rem;
       border: 2px solid #000;
       background: transparent;
       font-weight: bold;
       cursor: pointer;
-      margin: 0.3rem;
+      margin: 0.5rem;
       transition: 0.3s;
     }
 
@@ -145,13 +120,13 @@ nav a:hover {
        SECCIONES
     --------------------------*/
     section {
-      padding: 2.5rem 1.5rem;
+      padding: 3rem 2rem;
     }
 
     .section-title {
       text-align: center;
       margin-bottom: 2rem;
-      font-size: 1.8rem;
+      font-size: 2rem;
       border-bottom: 2px solid #000;
       display: inline-block;
       padding-bottom: 5px;
@@ -194,7 +169,6 @@ nav a:hover {
       justify-content: center;
       gap: 0.5rem;
       margin-bottom: 1rem;
-      flex-wrap: wrap;
     }
 
     .miniaturas img {
@@ -281,19 +255,33 @@ nav a:hover {
     /* -------------------------
        RESPONSIVE
     --------------------------*/
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
+    @media (max-width: 768px) {
       nav ul {
+        display: none;
         flex-direction: column;
-        gap: 10px;
+        background: #000;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 1rem;
       }
 
+      nav ul.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
+    @media (max-width: 600px) {
       .hero h1 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
+      }
+      nav a {
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -301,20 +289,17 @@ nav a:hover {
 <body>
 
   <!-- HEADER -->
-<header>
-  <h2>JIMENEZ TIENDA EXPRESS</h2>
-  <nav>
-    <ul id="menu">
-      <li><a href="#autos">Autos</a></li>
-      <li><a href="#productos">Productos</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-    <!-- Botón hamburguesa -->
-    <div class="hamburger" id="hamburger">
-      ☰
-    </div>
-  </nav>
-</header>
+  <header>
+    <h2>JIMENEZ TIENDA EXPRESS</h2>
+    <nav>
+      <ul id="menu">
+        <li><a href="#autos">Autos</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">☰</div>
+    </nav>
+  </header>
 
   <!-- HERO -->
   <section class="hero">
@@ -328,17 +313,15 @@ nav a:hover {
   <section id="autos">
     <h2 class="section-title">Autos</h2>
     <div class="cards autos">
-
       <div class="card">
         <img src="logan2.jpg" alt="Auto 1" class="principal">
         <div class="miniaturas">
           <img src="loganfrente.jpg" alt="Miniatura 1">
           <img src="kilometraje.jpg" alt="Miniatura 2">
           <img src="Logan1.jpg" alt="Miniatura 3">
-          <img src="Logan2.jpg" alt="Miniatura 4">
         </div>
         <p>Renault Logan Family 2015</p>
-        <button class="btn-caracteristicas" data-info="Motor 1.6 | Aire acondicionado | Vidrios eléctricos | Único dueño">Características</button>
+        <button class="btn-caracteristicas" data-info="Motor 1.6 | Aire acondicionado | Vidrios eléctricos">Características</button>
         <button onclick="window.open('https://wa.me/573021780301?text=Estoy%20interesado%20en%20el%20Logan','_blank')">Contacto</button>
       </div>
 
@@ -347,13 +330,10 @@ nav a:hover {
         <div class="miniaturas">
           <img src="edge3.jpg" alt="Miniatura 1">
           <img src="edge2.jpg" alt="Miniatura 2">
-          <img src="edge5.jpg" alt="Miniatura 3">
-          <img src="edge4.jpg" alt="Miniatura 4">
-          <img src="edge1.jpg" alt="Miniatura 5">
         </div>
         <p>Ford Titanium 2016</p>
-        <button class="btn-caracteristicas" data-info="Full equipo | Segundo dueño | Perfecto estado">Características</button>
-        <button onclick="window.open('https://wa.me/573021780301?text=Estoy%20interesado%20en%20la%20Ford%20Edge','_blank')">Contacto</button>
+        <button class="btn-caracteristicas" data-info="Full Equipo | Segundo Dueño | Perfecto Estado">Características</button>
+        <button onclick="window.open('https://wa.me/573021780301?text=Estoy%20interesado%20en%20la%20Edge','_blank')">Contacto</button>
       </div>
 
       <div class="card">
@@ -361,13 +341,10 @@ nav a:hover {
         <div class="miniaturas">
           <img src="spresso4.jpg" alt="Miniatura 1">
           <img src="espresso1.jpg" alt="Miniatura 2">
-          <img src="motorSu.jpg" alt="Miniatura 3">
-          <img src="kilossuzuki.jpg" alt="Miniatura 4">
-          <img src="espresso2.jpg" alt="Miniatura 5">
         </div>
         <p>Suzuki Spresso 2023</p>
-        <button class="btn-caracteristicas" data-info="Vidrios eléctricos | Único dueño | Listo para traspaso">Características</button>
-        <button onclick="window.open('https://wa.me/573021780301?text=Estoy%20interesado%20en%20la%20Suzuki%20Spresso','_blank')">Contacto</button>
+        <button class="btn-caracteristicas" data-info="Vidrios eléctricos | Único Dueño | Listo para traspaso">Características</button>
+        <button onclick="window.open('https://wa.me/573021780301?text=Estoy%20interesado%20en%20la%20Suzuki','_blank')">Contacto</button>
       </div>
     </div>
   </section>
@@ -394,18 +371,6 @@ nav a:hover {
         <button class="btn-caracteristicas" data-info="Detalles del Producto 3">Características</button>
         <button class="btn-comprar" data-info="Detalles del Producto 3" data-link="https://www.mercadopago.com/ejemplo">Comprar</button>
       </div>
-      <div class="card">
-        <img src="producto4.jpg" alt="Producto 4">
-        <p>Producto 4</p>
-        <button class="btn-caracteristicas" data-info="Detalles del Producto 4">Características</button>
-        <button class="btn-comprar" data-info="Detalles del Producto 4" data-link="https://www.mercadopago.com/ejemplo">Comprar</button>
-      </div>
-      <div class="card">
-        <img src="producto5.jpg" alt="Producto 5">
-        <p>Producto 5</p>
-        <button class="btn-caracteristicas" data-info="Detalles del Producto 5">Características</button>
-        <button class="btn-comprar" data-info="Detalles del Producto 5" data-link="https://www.mercadopago.com/ejemplo">Comprar</button>
-      </div>
     </div>
   </section>
 
@@ -431,7 +396,7 @@ nav a:hover {
 
   <!-- SCRIPT -->
   <script>
-    // Miniaturas dinámicas
+    // Miniaturas
     document.querySelectorAll('.card').forEach(card => {
       const principal = card.querySelector('.principal');
       const thumbs = card.querySelectorAll('.miniaturas img');
@@ -476,7 +441,13 @@ nav a:hover {
         modal.style.display = "none";
       }
     });
+
+    // Hamburguesa
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+    hamburger.addEventListener('click', () => {
+      menu.classList.toggle('show');
+    });
   </script>
 </body>
 </html>
-
