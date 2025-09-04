@@ -32,41 +32,79 @@
       color: inherit;
     }
 
-    /* -------------------------
-       HEADER + NAV
-    --------------------------*/
-    header {
-      background: #000;
-      color: #fff;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+/* -------------------------
+   HEADER + NAV
+--------------------------*/
+header {
+  background: #000;
+  color: #fff;
+  padding: 0.8rem 1.5rem;       /* más compacto */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-    header h2 {
-      font-size: 1.4rem;
-      font-weight: bold;
-    }
+header h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
+nav {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 
-    nav a {
-      font-weight: bold;
-      transition: color 0.3s;
-    }
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;                   /* menos espacio entre enlaces */
+}
 
-    nav a:hover {
-      color: gray;
-    }
+nav a {
+  font-weight: bold;
+  transition: color 0.3s;
+  font-size: 0.95rem;
+}
+
+nav a:hover {
+  color: gray;
+}
+
+/* Hamburguesa escondida en escritorio */
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* -------------------------
+   RESPONSIVE HEADER
+--------------------------*/
+@media (max-width: 768px) {
+  nav ul {
+    display: none;               /* oculto por defecto */
+    flex-direction: column;
+    background: #000;
+    position: absolute;
+    top: 60px;                  /* justo debajo del header */
+    right: 0;
+    width: 200px;
+    padding: 1rem;
+  }
+
+  nav ul.show {
+    display: flex;               /* aparece cuando activamos */
+  }
+
+  .hamburger {
+    display: block;              /* visible en móvil */
+  }
+}
+
 
     /* -------------------------
        HERO
@@ -263,16 +301,20 @@
 <body>
 
   <!-- HEADER -->
-  <header>
-    <h2>JIMENEZ TIENDA EXPRESS</h2>
-    <nav>
-      <ul>
-        <li><a href="#autos">Autos</a></li>
-        <li><a href="#productos">Productos</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+  <h2>JIMENEZ TIENDA EXPRESS</h2>
+  <nav>
+    <ul id="menu">
+      <li><a href="#autos">Autos</a></li>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <!-- Botón hamburguesa -->
+    <div class="hamburger" id="hamburger">
+      ☰
+    </div>
+  </nav>
+</header>
 
   <!-- HERO -->
   <section class="hero">
@@ -437,3 +479,4 @@
   </script>
 </body>
 </html>
+
