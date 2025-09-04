@@ -34,31 +34,29 @@
 
     /* -------------------------
        HEADER + NAV
-       Corregido con flexbox
     --------------------------*/
     header {
       background: #000;
       color: #fff;
       padding: 1rem 2rem;
       display: flex;
-      justify-content: space-between; /* Logo izquierda, menú derecha */
+      justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap; /* Para que no se rompa en pantallas pequeñas */
+      flex-wrap: wrap;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
     header h2 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.4rem;
+      font-weight: bold;
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 20px; /* Espacio entre enlaces */
-      flex-wrap: wrap;
+      gap: 20px;
     }
 
     nav a {
@@ -72,16 +70,15 @@
 
     /* -------------------------
        HERO
-       Más compacto
     --------------------------*/
     .hero {
       text-align: center;
-      padding: 3rem 1.5rem; /* Antes demasiado grande */
+      padding: 3rem 1.5rem;
       background: #f5f5f5;
     }
 
     .hero h1 {
-      font-size: 2rem; /* Reducido */
+      font-size: 2rem;
       margin-bottom: 1rem;
     }
 
@@ -253,7 +250,8 @@
       }
 
       nav ul {
-        justify-content: flex-start;
+        flex-direction: column;
+        gap: 10px;
       }
 
       .hero h1 {
@@ -263,6 +261,7 @@
   </style>
 </head>
 <body>
+
   <!-- HEADER -->
   <header>
     <h2>JIMENEZ TIENDA EXPRESS</h2>
@@ -282,3 +281,159 @@
     <a href="#autos" class="btn">Ver Autos</a>
     <a href="#productos" class="btn">Ver Productos</a>
   </section>
+
+  <!-- AUTOS -->
+  <section id="autos">
+    <h2 class="section-title">Autos</h2>
+    <div class="cards autos">
+
+      <div class="card">
+        <img src="logan2.jpg" alt="Auto 1" class="principal">
+        <div class="miniaturas">
+          <img src="loganfrente.jpg" alt="Miniatura 1">
+          <img src="kilometraje.jpg" alt="Miniatura 2">
+          <img src="Logan1.jpg" alt="Miniatura 3">
+          <img src="Logan2.jpg" alt="Miniatura 4">
+        </div>
+        <p>Renault Logan Family 2015</p>
+        <button class="btn-caracteristicas" data-info="Motor 1.6 | Aire acondicionado | Vidrios eléctricos | Único dueño">Características</button>
+        <button onclick="window.open('https://wa.me/573021780301?text=Estoy%20interesado%20en%20el%20Logan','_blank')">Contacto</button>
+      </div>
+
+      <div class="card">
+        <img src="edge1.jpg" alt="Auto 2" class="principal">
+        <div class="miniaturas">
+          <img src="edge3.jpg" alt="Miniatura 1">
+          <img src="edge2.jpg" alt="Miniatura 2">
+          <img src="edge5.jpg" alt="Miniatura 3">
+          <img src="edge4.jpg" alt="Miniatura 4">
+          <img src="edge1.jpg" alt="Miniatura 5">
+        </div>
+        <p>Ford Titanium 2016</p>
+        <button class="btn-caracteristicas" data-info="Full equipo | Segundo dueño | Perfecto estado">Características</button>
+        <button onclick="window.open('https://wa.me/573021780301?text=Estoy%20interesado%20en%20la%20Ford%20Edge','_blank')">Contacto</button>
+      </div>
+
+      <div class="card">
+        <img src="espresso2.jpg" alt="Auto 3" class="principal">
+        <div class="miniaturas">
+          <img src="spresso4.jpg" alt="Miniatura 1">
+          <img src="espresso1.jpg" alt="Miniatura 2">
+          <img src="motorSu.jpg" alt="Miniatura 3">
+          <img src="kilossuzuki.jpg" alt="Miniatura 4">
+          <img src="espresso2.jpg" alt="Miniatura 5">
+        </div>
+        <p>Suzuki Spresso 2023</p>
+        <button class="btn-caracteristicas" data-info="Vidrios eléctricos | Único dueño | Listo para traspaso">Características</button>
+        <button onclick="window.open('https://wa.me/573021780301?text=Estoy%20interesado%20en%20la%20Suzuki%20Spresso','_blank')">Contacto</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section id="productos">
+    <h2 class="section-title">Productos</h2>
+    <div class="cards productos">
+      <div class="card">
+        <img src="producto1.jpg" alt="Producto 1">
+        <p>Producto 1</p>
+        <button class="btn-caracteristicas" data-info="Detalles del Producto 1">Características</button>
+        <button class="btn-comprar" data-info="Detalles del Producto 1" data-link="https://www.mercadopago.com/ejemplo">Comprar</button>
+      </div>
+      <div class="card">
+        <img src="producto2.jpg" alt="Producto 2">
+        <p>Producto 2</p>
+        <button class="btn-caracteristicas" data-info="Detalles del Producto 2">Características</button>
+        <button class="btn-comprar" data-info="Detalles del Producto 2" data-link="https://www.mercadopago.com/ejemplo">Comprar</button>
+      </div>
+      <div class="card">
+        <img src="producto3.jpg" alt="Producto 3">
+        <p>Producto 3</p>
+        <button class="btn-caracteristicas" data-info="Detalles del Producto 3">Características</button>
+        <button class="btn-comprar" data-info="Detalles del Producto 3" data-link="https://www.mercadopago.com/ejemplo">Comprar</button>
+      </div>
+      <div class="card">
+        <img src="producto4.jpg" alt="Producto 4">
+        <p>Producto 4</p>
+        <button class="btn-caracteristicas" data-info="Detalles del Producto 4">Características</button>
+        <button class="btn-comprar" data-info="Detalles del Producto 4" data-link="https://www.mercadopago.com/ejemplo">Comprar</button>
+      </div>
+      <div class="card">
+        <img src="producto5.jpg" alt="Producto 5">
+        <p>Producto 5</p>
+        <button class="btn-caracteristicas" data-info="Detalles del Producto 5">Características</button>
+        <button class="btn-comprar" data-info="Detalles del Producto 5" data-link="https://www.mercadopago.com/ejemplo">Comprar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contacto">
+    <p>© 2025 JIMENEZ TIENDA EXPRESS - Todos los derechos reservados.</p>
+    <div class="social">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="https://wa.me/573001112233" target="_blank">WhatsApp</a>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3 id="modal-title">Detalles</h3>
+      <p id="modal-text"></p>
+      <a href="#" id="modal-link" class="btn" target="_blank" style="display:none;">Ir a comprar</a>
+    </div>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    // Miniaturas dinámicas
+    document.querySelectorAll('.card').forEach(card => {
+      const principal = card.querySelector('.principal');
+      const thumbs = card.querySelectorAll('.miniaturas img');
+      if (principal && thumbs) {
+        thumbs.forEach(t => {
+          t.addEventListener('click', () => {
+            principal.src = t.src;
+          });
+        });
+      }
+    });
+
+    // Modal
+    const modal = document.getElementById('modal');
+    const modalText = document.getElementById('modal-text');
+    const modalLink = document.getElementById('modal-link');
+    const close = document.querySelector('.close');
+
+    document.querySelectorAll('.btn-caracteristicas').forEach(btn => {
+      btn.addEventListener('click', () => {
+        modalText.textContent = btn.dataset.info;
+        modalLink.style.display = "none";
+        modal.style.display = "flex";
+      });
+    });
+
+    document.querySelectorAll('.btn-comprar').forEach(btn => {
+      btn.addEventListener('click', () => {
+        modalText.textContent = btn.dataset.info;
+        modalLink.href = btn.dataset.link;
+        modalLink.style.display = "inline-block";
+        modal.style.display = "flex";
+      });
+    });
+
+    close.addEventListener('click', () => {
+      modal.style.display = "none";
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
