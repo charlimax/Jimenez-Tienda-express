@@ -6,9 +6,6 @@
   <title>JIMENEZ TIENDA EXPRESS</title>
 
   <style>
-    /* -------------------------
-       ESTILOS GENERALES
-    --------------------------*/
     * {
       margin: 0;
       padding: 0;
@@ -32,13 +29,11 @@
       color: inherit;
     }
 
-    /* -------------------------
-       HEADER + NAV
-    --------------------------*/
+    /* HEADER */
     header {
       background: #000;
       color: #fff;
-      padding: 0.8rem 1.5rem;  /* más compacto */
+      padding: 0.8rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -47,21 +42,15 @@
       z-index: 1000;
     }
 
-    header h2 {
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 15px;
+    .logo img {
+      height: 80px;   /* 👈 Ajusta aquí el tamaño del logo */
+      width: auto;
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 15px; /* menos espacio entre enlaces */
+      gap: 15px;
     }
 
     nav a {
@@ -74,30 +63,17 @@
       color: gray;
     }
 
-    /* Hamburguesa (escondida en escritorio) */
     .hamburger {
       display: none;
       font-size: 1.5rem;
       cursor: pointer;
     }
 
-    /* -------------------------
-       HERO
-    --------------------------*/
+    /* HERO */
     .hero {
       text-align: center;
       padding: 4rem 2rem;
       background: #f5f5f5;
-    }
-
-    .hero h1 {
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
     }
 
     .btn {
@@ -116,9 +92,7 @@
       color: #fff;
     }
 
-    /* -------------------------
-       SECCIONES
-    --------------------------*/
+    /* SECCIONES */
     section {
       padding: 3rem 2rem;
     }
@@ -132,9 +106,7 @@
       padding-bottom: 5px;
     }
 
-    /* -------------------------
-       TARJETAS
-    --------------------------*/
+    /* TARJETAS */
     .cards {
       display: grid;
       gap: 1.5rem;
@@ -149,10 +121,12 @@
     }
 
     .card {
+      position: relative;
       border: 2px solid #000;
       padding: 1rem;
       text-align: center;
       transition: transform 0.3s;
+      overflow: hidden;
     }
 
     .card:hover {
@@ -193,9 +167,28 @@
       color: #fff;
     }
 
-    /* -------------------------
-       MODAL
-    --------------------------*/
+    /* Marca de agua */
+    .card::before {
+      content: "";
+      background: url('logoTblanco.jpg') no-repeat center;
+      background-size: 120px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 200px;
+      height: 200px;
+      transform: translate(-50%, -50%);
+      opacity: 0.07;
+      pointer-events: none;
+      z-index: 0; /* Marca de agua debajo */
+    }
+
+    .card * {
+      position: relative;
+      z-index: 1; /* Contenido por encima */
+    }
+
+    /* MODAL */
     .modal {
       display: none;
       position: fixed;
@@ -227,9 +220,7 @@
       font-weight: bold;
     }
 
-    /* -------------------------
-       FOOTER
-    --------------------------*/
+    /* FOOTER */
     footer {
       background: #000;
       color: #fff;
@@ -238,8 +229,10 @@
       margin-top: 2rem;
     }
 
-    .social {
-      margin-top: 0.5rem;
+    footer .logo img {
+      height: 80px;
+      display: block;
+      margin: 0 auto 0.5rem;
     }
 
     .social a {
@@ -252,9 +245,7 @@
       color: gray;
     }
 
-    /* -------------------------
-       RESPONSIVE
-    --------------------------*/
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       nav ul {
         display: none;
@@ -275,22 +266,15 @@
         display: block;
       }
     }
-
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 1.8rem;
-      }
-      nav a {
-        font-size: 0.9rem;
-      }
-    }
   </style>
 </head>
 <body>
 
   <!-- HEADER -->
   <header>
-    <h2>JIMENEZ TIENDA EXPRESS</h2>
+    <div class="logo">
+      <img src="logoTfondonegro.jpg" alt="Logo JIMENEZ TIENDA EXPRESS">
+    </div>
     <nav>
       <ul id="menu">
         <li><a href="#autos">Autos</a></li>
@@ -304,7 +288,7 @@
   <!-- HERO -->
   <section class="hero">
     <h1>Bienvenido a JIMENEZ TIENDA EXPRESS</h1>
-    <p>Encuentra autos y mucho más, nuevos y usados.</p>
+    <p>Autos y productos seleccionados, nuevos y usados.</p>
     <a href="#autos" class="btn">Ver Autos</a>
     <a href="#productos" class="btn">Ver Productos</a>
   </section>
@@ -314,47 +298,46 @@
     <h2 class="section-title">Autos</h2>
     <div class="cards autos">
       <div class="card">
-        <img src="logan2.jpg" alt="Auto 1" class="principal">
+        <img src="logan2.jpg" alt="Renault Logan vista lateral" class="principal">
         <div class="miniaturas">
-          <img src="loganfrente.jpg" alt="Miniatura 1">
-          <img src="kilometraje.jpg" alt="Miniatura 2">
-          <img src="Logan1.jpg" alt="Miniatura 3">
-          <img src="Logan2.jpg" alt="Miniatura 6">
+          <img src="loganfrente.jpg" alt="Renault Logan vista frontal">
+          <img src="kilometraje.jpg" alt="Odómetro Logan">
+          <img src="Logan1.jpg" alt="Renault Logan interior">
+          <img src="Logan2.jpg" alt="Renault Logan trasera">
         </div>
         <p>Renault Logan Family 2015</p>
         <p class="precio">$30.000.000</p>
-        
-        <button class="btn-caracteristicas" data-info="Motor 1.4 | Precio Negociable | Papeles al Dia | No ha sido trabajdo en plataformas | Segundo Dueño de la misma familia">Características</button>
+        <button class="btn-caracteristicas" data-info="Motor 1.4 | Precio Negociable | Papeles al Día | No ha sido trabajado en plataformas | Segundo Dueño de la misma familia">Características</button>
         <button onclick="window.open('https://wa.me/573023178030?text=Estoy%20interesado%20en%20el%20Logan','_blank')">Contacto</button>
       </div>
 
       <div class="card">
-        <img src="edge1.jpg" alt="Auto 2" class="principal">
+        <img src="edge1.jpg" alt="Ford Edge vista lateral" class="principal">
         <div class="miniaturas">
-          <img src="edge3.jpg" alt="Miniatura 1">
-          <img src="edge2.jpg" alt="Miniatura 2">
-          <img src="edge4.jpg" alt="Miniatura 3">
-          <img src="edge5.jpg" alt="Miniatura 4">
-          <img src="edge1.jpg" alt="Miniatura 4">
+          <img src="edge3.jpg" alt="Ford Edge vista 3/4">
+          <img src="edge2.jpg" alt="Ford Edge interior">
+          <img src="edge4.jpg" alt="Ford Edge tablero">
+          <img src="edge5.jpg" alt="Ford Edge trasera">
+          <img src="edge1.jpg" alt="Ford Edge lateral">
         </div>
         <p>Ford Titanium 2016</p>
         <p class="precio">$70.000.000</p>
-        <button class="btn-caracteristicas" data-info="Full Equipo | Segundo Dueño | Perfecto Estado | Precio Negociable | Papeles al Dia">Características</button>
+        <button class="btn-caracteristicas" data-info="Full Equipo | Segundo Dueño | Perfecto Estado | Precio Negociable | Papeles al Día">Características</button>
         <button onclick="window.open('https://wa.me/573023178030?text=Estoy%20interesado%20en%20la%20Edge','_blank')">Contacto</button>
       </div>
 
       <div class="card">
-        <img src="espresso2.jpg" alt="Auto 3" class="principal">
+        <img src="espresso2.jpg" alt="Suzuki Spresso vista lateral" class="principal">
         <div class="miniaturas">
-          <img src="spresso4.jpg" alt="Miniatura 1">
-          <img src="espresso1.jpg" alt="Miniatura 2">
-          <img src="spresso4.jpg" alt="Miniatura 1">
-          <img src="kilossuzuki.jpg" alt="Miniatura 2">
-          <img src="spresso5.jpg" alt="Miniatura 2">
+          <img src="spresso4.jpg" alt="Suzuki Spresso frontal">
+          <img src="espresso1.jpg" alt="Suzuki Spresso interior">
+          <img src="spresso4.jpg" alt="Suzuki Spresso tablero">
+          <img src="kilossuzuki.jpg" alt="Kilometraje Suzuki">
+          <img src="spresso5.jpg" alt="Suzuki Spresso trasera">
         </div>
         <p>Suzuki Spresso 2023</p>
         <p class="precio">$45.000.000</p>
-        <button class="btn-caracteristicas" data-info="Vidrios Delanteros eléctricos | Único Dueño | Listo para traspaso | Precio Negociable | Papeles al Dia">Características</button>
+        <button class="btn-caracteristicas" data-info="Vidrios Delanteros eléctricos | Único Dueño | Listo para traspaso | Precio Negociable | Papeles al Día">Características</button>
         <button onclick="window.open('https://wa.me/573023178030?text=Estoy%20interesado%20en%20la%20Suzuki','_blank')">Contacto</button>
       </div>
     </div>
@@ -365,21 +348,21 @@
     <h2 class="section-title">Productos</h2>
     <div class="cards productos">
       <div class="card">
-        <img src="producto1.jpg" alt="Producto 1">
+        <img src="producto1.jpg" alt="Producto 1 genérico">
         <p>Producto 1</p>
         <p class="precio">$</p>
         <button class="btn-caracteristicas" data-info="Detalles del Producto 1">Características</button>
         <button class="btn-comprar" data-info="Detalles del Producto 1" data-link="https://www.mercadopago.com/ejemplo">Comprar</button>
       </div>
       <div class="card">
-        <img src="producto2.jpg" alt="Producto 2">
+        <img src="producto2.jpg" alt="Producto 2 genérico">
         <p>Producto 2</p>
         <p class="precio">$</p>
         <button class="btn-caracteristicas" data-info="Detalles del Producto 2">Características</button>
         <button class="btn-comprar" data-info="Detalles del Producto 2" data-link="https://www.mercadopago.com/ejemplo">Comprar</button>
       </div>
       <div class="card">
-        <img src="producto3.jpg" alt="Producto 3">
+        <img src="producto3.jpg" alt="Producto 3 genérico">
         <p>Producto 3</p>
         <p class="precio">$</p>
         <button class="btn-caracteristicas" data-info="Detalles del Producto 3">Características</button>
@@ -390,12 +373,15 @@
 
   <!-- FOOTER -->
   <footer id="contacto">
-    <p>© 2025 JIMENEZ TIENDA EXPRESS - Todos los derechos reservados.</p>
+    <div class="logo">
+      <img src="logoTfondonegro.jpg" alt="Logo JIMENEZ TIENDA EXPRESS">
+    </div>
     <div class="social">
       <a href="#">Facebook</a>
       <a href="#">Instagram</a>
       <a href="https://wa.me/573023178030?text=Vengo%20de%20Tu%20pagina" target="_blank">WhatsApp</a>
     </div>
+    <p>© 2025 JIMENEZ TIENDA EXPRESS - Todos los derechos reservados.</p>
   </footer>
 
   <!-- MODAL -->
@@ -408,7 +394,6 @@
     </div>
   </div>
 
-  <!-- SCRIPT -->
   <script>
     // Miniaturas
     document.querySelectorAll('.card').forEach(card => {
@@ -465,12 +450,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
